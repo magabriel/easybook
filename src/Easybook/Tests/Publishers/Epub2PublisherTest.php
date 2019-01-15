@@ -14,7 +14,7 @@ namespace Easybook\Tests\Publishers;
 use Easybook\DependencyInjection\Application;
 use Easybook\Publishers\Epub2Publisher;
 
-class Epub2PublisherTest extends \PHPUnit_Framework_TestCase
+class Epub2PublisherTest extends \PHPUnit\Framework\TestCase
 {
     private $app;
 
@@ -50,7 +50,9 @@ class Epub2PublisherTest extends \PHPUnit_Framework_TestCase
 
     public function testPrepareBookCoverImageIfTheBookDefinesNoCoverImage()
     {
-        $app = $this->getMock('Easybook\DependencyInjection\Application', array('getCustomCoverImage'));
+        $app = $this->getMockBuilder('Easybook\DependencyInjection\Application')
+            ->setMethods(array('getCustomCoverImage'))
+            ->getMock();
         $app->expects($this->any())
             ->method('getCustomCoverImage')
             ->will($this->returnValue(null));

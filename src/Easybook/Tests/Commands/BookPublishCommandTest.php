@@ -21,7 +21,7 @@ use Easybook\Console\ConsoleApplication;
 use Easybook\Console\Command\BookNewCommand;
 use Easybook\Console\Command\BookPublishCommand;
 
-class BookPublishCommandTest extends \PHPUnit_Framework_TestCase
+class BookPublishCommandTest extends \PHPUnit\Framework\TestCase
 {
     protected $console;
     protected $filesystem;

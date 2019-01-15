@@ -18,7 +18,7 @@ use ZendPdf\PdfDocument;
 use ZendPdf\Font;
 use ZendPdf\Page;
 
-class PdfWkhtmltopdfPublisherTest extends \PHPUnit_Framework_TestCase
+class PdfWkhtmltopdfPublisherTest extends \PHPUnit\Framework\TestCase
 {
     public function testHelpIsDisplayedWhenThisPublisherIsNotSupported()
     {
@@ -52,10 +52,10 @@ HELP;
         $app['wkhtmltopdf.default_paths'] = array();
         $app['console.input'] = new ArrayInput(array());
 
-        $publisher = $this->getMock('Easybook\Publishers\PdfWkhtmltopdfPublisher',
-            array('askForwkhtmltopdfPath'),
-            array($app)
-        );
+        $publisher = $this->getMockBuilder('Easybook\Publishers\PdfWkhtmltopdfPublisher')
+            ->setMethods(array('askForwkhtmltopdfPath'))
+            ->setConstructorArgs(array($app))
+            ->getMock();
 
         $publisher->expects($this->once())
             ->method('askForwkhtmltopdfPath')
@@ -76,10 +76,10 @@ HELP;
         $app['wkhtmltopdf.default_paths'] = array();
         $app['console.input'] = new ArrayInput(array());
 
-        $publisher = $this->getMock('Easybook\Publishers\PdfWkhtmltopdfPublisher',
-            array('askForwkhtmltopdfPath'),
-            array($app)
-        );
+        $publisher = $this->getMockBuilder('Easybook\Publishers\PdfWkhtmltopdfPublisher')
+            ->setMethods(array('askForwkhtmltopdfPath'))
+            ->setConstructorArgs(array($app))
+            ->getMock();
 
         $publisher->expects($this->once())
             ->method('askForwkhtmltopdfPath')

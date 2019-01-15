@@ -75,7 +75,9 @@ class ApplicationTest extends TestCase
     public function testHighlight($originalFilePath, $highlightedFilePath)
     {
         // mock the $app object to disable the highlight cache
-        $app = $this->getMock('Easybook\DependencyInjection\Application', array('edition'));
+        $app = $this->getMockBuilder('Easybook\DependencyInjection\Application')
+            ->setMethods(array('edition'))
+            ->getMock();
         $app->expects($this->any())
             ->method('edition')
             ->will($this->returnValue(null));
@@ -139,7 +141,7 @@ class ApplicationTest extends TestCase
     }
 
     /**
-     * @expectedException PHPUnit_Framework_Error_Deprecated
+     * @expectedException PHPUnit\Framework\Error\Deprecated
      * @expectedExceptionMessage The "publishing.id" option is deprecated
      */
     public function testDeprecatedPublishingIdProperty()
@@ -322,7 +324,9 @@ class ApplicationTest extends TestCase
         $this->assertRegExp('/[a-f0-9\-]*/', $publishingId['value']);
 
         // get the ID of a book with an ISBN
-        $app = $this->getMock('Easybook\DependencyInjection\Application', array('edition'));
+        $app = $this->getMockBuilder('Easybook\DependencyInjection\Application')
+            ->setMethods(array('edition'))
+            ->getMock();
         $app->expects($this->once())
             ->method('edition')
             ->with($this->equalTo('isbn'))

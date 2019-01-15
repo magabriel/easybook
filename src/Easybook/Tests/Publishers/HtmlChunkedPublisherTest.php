@@ -14,7 +14,7 @@ namespace Easybook\Tests\Publishers;
 use Easybook\DependencyInjection\Application;
 use Easybook\Publishers\HtmlChunkedPublisher;
 
-class HtmlChunkedPublisherTest extends \PHPUnit_Framework_TestCase
+class HtmlChunkedPublisherTest extends \PHPUnit\Framework\TestCase
 {
     private $app;
 

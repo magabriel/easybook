@@ -39,7 +39,9 @@ class BookConfigurationTest extends TestCase
     {
         $app = new Application();
 
-        $configurator = $this->getMock('Easybook\Configurator\BookConfigurator', array('loadBookFileConfiguration'), array($app));
+        $configurator = $this->getMockBuilder('Easybook\Configurator\BookConfigurator')
+            ->setMethods(array('loadBookFileConfiguration'))
+            ->setConstructorArgs(array($app))->getMock();
         $configurator->expects($this->once())
             ->method('loadBookFileConfiguration')
             ->will($this->returnValue(Yaml::parse($bookConfiguration) ?: array()))
@@ -58,7 +60,10 @@ class BookConfigurationTest extends TestCase
     {
         $app = new Application();
 
-        $configurator = $this->getMock('Easybook\Configurator\BookConfigurator', array('loadBookFileConfiguration'), array($app));
+        $configurator = $this->getMockBuilder('Easybook\Configurator\BookConfigurator')
+            ->setMethods(array('loadBookFileConfiguration'))
+            ->setConstructorArgs(array($app))
+            ->getMock();
         $configurator->expects($this->once())
             ->method('loadBookFileConfiguration')
             ->will($this->returnValue(Yaml::parse($bookConfiguration) ?: array()))

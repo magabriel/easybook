@@ -63,7 +63,7 @@ class TwigCssExtension extends \Twig_Extension
      */
     public function darken($color, $percent)
     {
-        return $this->lighten($color, -$percent);
+        return $this->lighten($color, str_replace('--', '+', '-'.$percent));
     }
 
     /*

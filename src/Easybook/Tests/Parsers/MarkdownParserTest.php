@@ -14,7 +14,7 @@ namespace Easybook\Tests\Commands;
 use Easybook\DependencyInjection\Application;
 use Easybook\Parsers\MarkdownParser;
 
-class MarkdownParserTest extends \PHPUnit_Framework_TestCase
+class MarkdownParserTest extends \PHPUnit\Framework\TestCase
 {
     protected $app;
     protected $parser;

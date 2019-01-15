@@ -14,7 +14,7 @@ namespace Easybook\Tests\Providers;
 use Easybook\DependencyInjection\Application;
 use Easybook\Providers\PublisherServiceProvider;
 
-class PublisherServiceProviderTest extends \PHPUnit_Framework_TestCase
+class PublisherServiceProviderTest extends \PHPUnit\Framework\TestCase
 {
 
     public function testPdfPublisherWithDefaultEngine()

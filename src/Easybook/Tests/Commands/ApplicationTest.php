@@ -15,7 +15,7 @@ use Easybook\DependencyInjection\Application;
 use Easybook\Console\ConsoleApplication;
 use Symfony\Component\Console\Tester\ApplicationTester;
 
-class ApplicationTest extends \PHPUnit_Framework_TestCase
+class ApplicationTest extends \PHPUnit\Framework\TestCase
 {
     private $app;
     private $console;

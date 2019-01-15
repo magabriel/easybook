@@ -21,7 +21,7 @@ use Symfony\Component\Console\Helper\HelperSet;
 use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\Yaml\Yaml;
 
-class BookNewCommandTest extends \PHPUnit_Framework_TestCase
+class BookNewCommandTest extends \PHPUnit\Framework\TestCase
 {
     protected $filesystem;
     protected $tmpDir;

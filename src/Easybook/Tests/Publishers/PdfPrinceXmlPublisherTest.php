@@ -18,7 +18,7 @@ use ZendPdf\PdfDocument;
 use ZendPdf\Font;
 use ZendPdf\Page;
 
-class PdfPrinceXmlPublisherTest extends \PHPUnit_Framework_TestCase
+class PdfPrinceXmlPublisherTest extends \PHPUnit\Framework\TestCase
 {
     public function testHelpIsDisplayedWhenThisPublisherIsNotSupported()
     {
@@ -52,11 +52,10 @@ HELP;
         $app['prince.default_paths'] = array();
         $app['console.input'] = new ArrayInput(array());
 
-        $publisher = $this->getMock(
-            'Easybook\Publishers\PdfPrinceXmlPublisher',
-            array('askForPrinceXMLPath'),
-            array($app)
-        );
+        $publisher = $this->getMockBuilder('Easybook\Publishers\PdfPrinceXmlPublisher')
+            ->setMethods(array('askForPrinceXMLPath'))
+            ->setConstructorArgs(array($app))
+            ->getMock();
 
         $publisher->expects($this->once())
                   ->method('askForPrinceXMLPath')
@@ -78,11 +77,10 @@ HELP;
         $app['prince.default_paths'] = array();
         $app['console.input'] = new ArrayInput(array());
 
-        $publisher = $this->getMock(
-            'Easybook\Publishers\PdfPrinceXmlPublisher',
-            array('askForPrinceXMLPath'),
-            array($app)
-        );
+        $publisher = $this->getMockBuilder('Easybook\Publishers\PdfPrinceXmlPublisher')
+            ->setMethods(array('askForPrinceXMLPath'))
+            ->setConstructorArgs(array($app))
+            ->getMock();
 
         $publisher->expects($this->once())
                   ->method('askForPrinceXMLPath')
